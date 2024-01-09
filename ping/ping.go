@@ -198,7 +198,7 @@ func (p *Pinger) Ping() {
 	}
 }
 
-func (p *Pinger) Summarize() {
+func (p *Pinger) Summarize() (int, time.Duration){
 
 	const tpl = `
 Ping statistics %s
@@ -207,7 +207,8 @@ Ping statistics %s
 Approximate trip times:
 	Minimum = %s, Maximum = %s, Average = %s`
 
-	_, _ = fmt.Fprintf(p.out, tpl, p.url.String(), p.total, p.total-p.failedTotal, p.failedTotal, p.minDuration, p.maxDuration, p.totalDuration/time.Duration(p.total))
+	//_, _ = fmt.Fprintf(p.out, tpl, p.url.String(), p.total, p.total-p.failedTotal, p.failedTotal, p.minDuration, p.maxDuration, p.totalDuration/time.Duration(p.total))
+	return p.failedTotal, p.totalDuration/time.Duration(p.total)
 }
 
 func (p *Pinger) formatError(err error) string {
