@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	tcping "github.com/cloverstd/tcping/ping"
+	tcping "github.com/yayunl/tcping/ping"
 	"net/url"
 	"testing"
 	"time"
